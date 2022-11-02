@@ -1,0 +1,29 @@
+plugins {
+    id 'java-library'
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.10.0"))
+
+    implementation("com.squareup.okhttp3:okhttp")
+    implementation("com.squareup.okhttp3:logging-interceptor")
+    testImplementation("com.squareup.okhttp3:mockwebserver")
+
+    api("com.google.code.gson:gson:2.9.1")
+
+    implementation("ru.gildor.coroutines:kotlin-coroutines-okhttp:1.0")
+
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.9.1")
+}
+
+test {
+    useJUnitPlatform()
+}
