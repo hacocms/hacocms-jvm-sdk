@@ -50,9 +50,9 @@ publishing {
 
                 developers {
                     developer {
-                        id = 'quangson91'
-                        name = 'Duong Quang Son'
-                        email = 'quangson91@gmail.com'
+                        id = 'hacocms'
+                        name = 'Seesaa Inc.'
+                        email = 'g-hacocms@seesaa.co.jp'
                     }
                 }
 
