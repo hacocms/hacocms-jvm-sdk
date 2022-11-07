@@ -3,8 +3,8 @@ package jp.seesaa.hacocms
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import jp.seesaa.hacocms.client.*
-import jp.seesaa.hacocms.client.SortQuery.Companion.sq
+import com.hacocms.sdk.*
+import com.hacocms.sdk.SortQuery.Companion.sq
 import jp.seesaa.hacocms.response.ExampleContent
 import kotlinx.coroutines.launch
 
