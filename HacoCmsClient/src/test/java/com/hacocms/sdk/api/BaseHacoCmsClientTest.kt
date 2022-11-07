@@ -1,8 +1,8 @@
-package jp.seesaa.hacocms.client.api
+package com.hacocms.sdk.api
 
 import com.google.gson.annotations.SerializedName
-import jp.seesaa.hacocms.client.HacoCmsClient
-import jp.seesaa.hacocms.client.response.ApiContent
+import com.hacocms.sdk.HacoCmsClient
+import com.hacocms.sdk.response.ApiContent
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach

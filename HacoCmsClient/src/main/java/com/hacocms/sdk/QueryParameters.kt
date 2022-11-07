@@ -1,4 +1,4 @@
-package jp.seesaa.hacocms.client
+package com.hacocms.sdk
 
 /**
  * A class represents all possibility query parameters to the Haco Cms.

@@ -1,6 +1,6 @@
-package jp.seesaa.hacocms.client
+package com.hacocms.sdk
 
-import jp.seesaa.hacocms.client.SortQuery.Companion.sq
+import com.hacocms.sdk.SortQuery.Companion.sq
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource

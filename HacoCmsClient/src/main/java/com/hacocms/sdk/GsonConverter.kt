@@ -1,4 +1,4 @@
-package jp.seesaa.hacocms.client
+package com.hacocms.sdk
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -6,8 +6,8 @@ import com.google.gson.TypeAdapter
 import com.google.gson.reflect.TypeToken
 import com.google.gson.stream.JsonReader
 import com.google.gson.stream.JsonWriter
-import jp.seesaa.hacocms.client.response.ApiContent
-import jp.seesaa.hacocms.client.response.ListApiResponse
+import com.hacocms.sdk.response.ApiContent
+import com.hacocms.sdk.response.ListApiResponse
 import okhttp3.ResponseBody
 import java.time.LocalDateTime
 import java.time.OffsetDateTime

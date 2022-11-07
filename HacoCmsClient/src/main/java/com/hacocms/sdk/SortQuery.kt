@@ -1,4 +1,4 @@
-package jp.seesaa.hacocms.client
+package com.hacocms.sdk
 
 enum class SortOrder { ASC, DESC }
 
@@ -19,7 +19,7 @@ enum class SortOrder { ASC, DESC }
  * By default the sorting order is ASC. To custom, passing [order] value.
  *
  * There is also a convenient extensions to create sort query from string.
- * @see jp.seesaa.hacocms.client.SortQuery.Companion.sq
+ * @see com.hacocms.sdk.SortQuery.Companion.sq
  */
 data class SortQuery(
     val field: String,

@@ -1,0 +1,23 @@
+name: Release CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'zulu'
+      - uses: gradle/gradle-build-action@v2
+      - name: Run unit tests with Gradle
+        run: ./gradlew :HacoCmsClient:test
+      - name: Publish to Sonatype
+        env:
+          NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
+          NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
+        run: ./gradlew :HacoCmsClient:publish -PNEXUS_USERNAME="${NEXUS_USERNAME}" -PNEXUS_PASSWORD="${NEXUS_PASSWORD}"
