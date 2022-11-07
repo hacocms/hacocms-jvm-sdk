@@ -1,7 +1,7 @@
-package jp.seesaa.hacocms.client
+package com.hacocms.sdk
 
-import jp.seesaa.hacocms.client.response.ApiContent
-import jp.seesaa.hacocms.client.response.ListApiResponse
+import com.hacocms.sdk.response.ApiContent
+import com.hacocms.sdk.response.ListApiResponse
 
 suspend inline fun <reified T : ApiContent> HacoCmsClient.getList(
     endpoint: String, query: QueryParameters = QueryParameters.EMPTY

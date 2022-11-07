@@ -1,4 +1,4 @@
-package jp.seesaa.hacocms.client.response
+package com.hacocms.sdk.response
 
 import java.time.LocalDateTime
 

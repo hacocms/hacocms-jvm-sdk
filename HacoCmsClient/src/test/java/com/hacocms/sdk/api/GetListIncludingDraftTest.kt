@@ -1,6 +1,6 @@
-package jp.seesaa.hacocms.client.api
+package com.hacocms.sdk.api
 
-import jp.seesaa.hacocms.client.getListIncludingDraft
+import com.hacocms.sdk.getListIncludingDraft
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import okhttp3.mockwebserver.MockResponse

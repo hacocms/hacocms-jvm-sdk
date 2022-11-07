@@ -1,8 +1,8 @@
-package jp.seesaa.hacocms.client.api
+package com.hacocms.sdk.api
 
-import jp.seesaa.hacocms.client.QueryParameters
-import jp.seesaa.hacocms.client.SortQuery.Companion.sq
-import jp.seesaa.hacocms.client.getList
+import com.hacocms.sdk.QueryParameters
+import com.hacocms.sdk.SortQuery.Companion.sq
+import com.hacocms.sdk.getList
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import okhttp3.HttpUrl
