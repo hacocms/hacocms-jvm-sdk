@@ -30,13 +30,11 @@ implementation "com.hacocms.sdk:hacocms:1.0.0"
 
 クライアント対象の作成
 ```kotlin
-fun run() = GlobalScope.launch {
     val client = HacoCmsClient.create(
         baseUrl = "BASE_URL",
         accessToken = "ACCESS_TOKEN",
         projectDraftToken = "PROJECT_DRAFT_TOKEN"
     )
-}
 ```
 
 APIから返ってきた結果をmapingするために、 ApiContentからextendsされたObjectを作ります。

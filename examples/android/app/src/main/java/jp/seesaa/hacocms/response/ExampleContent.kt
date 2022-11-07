@@ -1,7 +1,7 @@
 package jp.seesaa.hacocms.response
 
-import jp.seesaa.hacocms.client.response.ApiContent
 import com.google.gson.annotations.SerializedName
+import com.hacocms.sdk.response.ApiContent
 import java.time.LocalDateTime
 
 data class ExampleContent(
