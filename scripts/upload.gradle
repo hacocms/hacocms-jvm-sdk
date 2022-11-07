@@ -1,0 +1,89 @@
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+
+version = VERSION_NAME
+group = GROUP
+
+static def localMavenRepo() {
+    'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
+}
+
+@SuppressWarnings("GrMethodMayBeStatic")
+def isReleaseBuild() {
+    return !VERSION_NAME.contains("SNAPSHOT")
+}
+
+def getReleaseRepositoryUrl() {
+    return hasProperty('LOCAL') ? localMavenRepo()
+            : hasProperty('RELEASE_REPOSITORY_URL') ? RELEASE_REPOSITORY_URL
+            : 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
+}
+
+def getSnapshotRepositoryUrl() {
+    return hasProperty('LOCAL') ? localMavenRepo()
+            : hasProperty('SNAPSHOT_REPOSITORY_URL') ? SNAPSHOT_REPOSITORY_URL
+            : 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
+}
+
+def getRepositoryUsername() {
+    return hasProperty('USERNAME') ? USERNAME : (hasProperty('NEXUS_USERNAME') ? NEXUS_USERNAME : '')
+}
+
+def getRepositoryPassword() {
+    return hasProperty('PASSWORD') ? PASSWORD : (hasProperty('NEXUS_PASSWORD') ? NEXUS_PASSWORD : '')
+}
+
+afterEvaluate { project ->
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                groupId = GROUP
+                artifactId = POM_ARTIFACT_ID
+                version = VERSION_NAME
+                from components.java
+
+                pom {
+                    name = 'hacoCMS JVM SDK'
+                    description = 'hacoCMSのjava/kotlin用 API クライアントライブラリです。'
+                    url = 'https://github.com/hacocms/hacocms-jvm-sdk'
+                    licenses {
+                        license {
+                            name = 'MIT License'
+                            url = 'http://www.opensource.org/licenses/mit-license.php'
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id = 'hacocms'
+                            name = 'Seesaa Inc.'
+                            email = 'g-hacocms@seesaa.co.jp'
+                        }
+                    }
+
+                    scm {
+                        connection = 'scm:git:git://hacocms/hacocms-jvm-sdk.git'
+                        developerConnection = 'scm:git:ssh://hacocms/hacocms-jvm-sdk.git'
+                        url = 'https://github.com/hacocms/hacocms-jvm-sdk/'
+                    }
+                }
+            }
+        }
+
+        repositories {
+            maven {
+                url = isReleaseBuild() ? getReleaseRepositoryUrl() : getSnapshotRepositoryUrl()
+
+                credentials {
+                    username = getRepositoryUsername()
+                    password = getRepositoryPassword()
+                }
+            }
+        }
+    }
+
+    signing {
+        required { isReleaseBuild() }
+        sign publishing.publications
+    }
+}

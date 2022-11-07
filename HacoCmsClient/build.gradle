@@ -1,12 +1,13 @@
 plugins {
     id 'java-library'
     id 'org.jetbrains.kotlin.jvm'
-    id 'maven-publish'
 }
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
+    withJavadocJar()
+    withSourcesJar()
 }
 
 dependencies {
@@ -29,39 +30,4 @@ test {
     useJUnitPlatform()
 }
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId = 'com.hacocms.sdk'
-            artifactId = 'hacocms'
-            version = "1.0.0"
-            from components.java
-
-            pom {
-                name = 'hacoCMS JVM SDK'
-                description = 'hacoCMSのjava/kotlin用 API クライアントライブラリです。'
-                url = 'https://github.com/hacocms/hacocms-jvm-sdk'
-                licenses {
-                    license {
-                        name = 'MIT License'
-                        url = 'http://www.opensource.org/licenses/mit-license.php'
-                    }
-                }
-
-                developers {
-                    developer {
-                        id = 'hacocms'
-                        name = 'Seesaa Inc.'
-                        email = 'g-hacocms@seesaa.co.jp'
-                    }
-                }
-
-                scm {
-                    connection = 'scm:git:git://hacocms/hacocms-jvm-sdk.git'
-                    developerConnection = 'scm:git:ssh://hacocms/hacocms-jvm-sdk.git'
-                    url = 'https://github.com/hacocms/hacocms-jvm-sdk/'
-                }
-            }
-        }
-    }
-}
+apply from: "${rootProject.projectDir}/scripts/upload.gradle"
