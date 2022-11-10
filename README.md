@@ -1,6 +1,8 @@
 # HacoCMS Android SDK
 
 [hacoCMS](https://hacocms.com/)のAndroid用 API クライアントライブラリです。
+- **Platform**: Android 5.0+ (API level 21+)
+- **Minimum Java Version**: Java 8+
 
 ## Step 1. hacoCMSのAPIスキーマ設定
 お持ちのhacoCMSアカウントの適当なプロジェクト（無ければ作成してください）に、ブログ記事のAPIを以下の設定で作成してください。[APIの作成方法についてはhacoCMSのドキュメント](https://hacocms.com/docs/entry/api-create)をご確認ください。
